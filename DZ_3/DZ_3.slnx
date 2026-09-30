@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../PDF3/PDF3.csproj" />
+  <Project Path="DZ3.csproj" />
+</Solution>

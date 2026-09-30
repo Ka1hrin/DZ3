@@ -1,25 +1,28 @@
-﻿public static class ConsoleHelper
+﻿namespace PDF3
 {
-    //Метод, который будет проверять, что пользователь ввел число
-    public static int ReadInt(string prompt)
+    public static class ConsoleHelper
     {
-        //Переменные, которые будут использоваться внутри следующего цикла
-        int value;
-        bool isValid;
-
-        do
+        //Метод, который будет проверять, что пользователь ввел число
+        public static int ReadInt(string prompt)
         {
-            Console.Write(prompt);
-            var input = Console.ReadLine();
+            //Переменные, которые будут использоваться внутри следующего цикла
+            int value;
+            bool isValid;
 
-            isValid = int.TryParse(input, out value); //Разделяем, т.к. значение переменной дальше используется
+            do
+            {
+                Console.Write(prompt);
+                var input = Console.ReadLine();
 
-            //Если не смог преобразовать, то вывести сообщение
-            if (!isValid)
-                Console.WriteLine($"Ошибка: «{input}» — не целое число. Попробуйте снова.");
+                isValid = int.TryParse(input, out value); //Разделяем, т.к. значение переменной дальше используется
+
+                //Если не смог преобразовать, то вывести сообщение
+                if (!isValid)
+                    Console.WriteLine($"Ошибка: «{input}» — не целое число. Попробуйте снова.");
+            }
+            while (!isValid); //Повторять, пока переменная !isValid не станет falseS
+
+            return value;
         }
-        while (!isValid); //Повторять, пока переменная !isValid не станет falseS
-
-        return value;
     }
 }
